@@ -1,0 +1,149 @@
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "10/30/2022 15:28:09"
+                                                                                
+// Verilog Test Bench template for design : StateMachine
+// 
+// Simulation tool : ModelSim-Altera (Verilog)
+// 
+
+`timescale 1 ps/ 1 ps
+module StateMachine_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg [3:0] in_button;
+reg in_clk;
+reg [9:0] in_switch;
+// wires                                               
+wire [9:0]  out_led;
+wire [6:0]  seven_segment_0;
+wire [6:0]  seven_segment_1;
+wire [6:0]  seven_segment_2;
+wire [6:0]  seven_segment_3;
+wire [6:0]  seven_segment_4;
+wire [6:0]  seven_segment_5;
+
+// assign statements (if any)                          
+StateMachine i1 (
+// port map - connection between master ports and signals/registers   
+	.in_button(in_button),
+	.in_clk(in_clk),
+	.in_switch(in_switch),
+	.out_led(out_led),
+	.seven_segment_0(seven_segment_0),
+	.seven_segment_1(seven_segment_1),
+	.seven_segment_2(seven_segment_2),
+	.seven_segment_3(seven_segment_3),
+	.seven_segment_4(seven_segment_4),
+	.seven_segment_5(seven_segment_5)
+);
+
+always #5 in_clk <= ~in_clk;
+
+initial                                                
+begin                                                  
+// code that executes only once                        
+// insert code here --> begin                          
+in_clk <= 1'b1;
+in_button = 4'b1111;
+#13
+in_button[0] <= 1'b0;
+#10
+in_button[0] <= 1'b1;
+#15
+in_button[1] = 1'b0;
+#10
+in_button[1] = 1'b1;
+#10
+in_button[1] = 1'b0;
+#10
+in_button[1] = 1'b1;
+#10
+in_button[1] = 1'b0;
+#10
+in_button[1] = 1'b1;
+#10
+in_button[1] = 1'b0;
+#10
+in_button[1] = 1'b1;
+#15
+in_button[0] <= 1'b0;
+#15
+in_button[0] <= 1'b1;
+#15
+in_button[1] = 1'b0;
+#10
+in_button[1] = 1'b1;
+#10
+in_button[1] = 1'b0;
+#10
+in_button[1] = 1'b1;
+#10
+in_button[2] = 1'b0;
+#10
+in_button[2] = 1'b1;
+#10
+in_button[1] = 1'b0;
+#10
+in_button[1] = 1'b1;
+#10
+in_button[1] = 1'b0;
+#10
+in_button[1] = 1'b1;
+#10
+in_button[2] = 1'b0;
+#10
+in_button[2] = 1'b1;
+#10
+in_button[1] = 1'b0;
+#10
+in_button[1] = 1'b1;
+#10
+in_button[1] = 1'b0;
+#10
+in_button[1] = 1'b1;
+#10
+in_button[2] = 1'b0;
+#10
+in_button[2] = 1'b1;
+#10
+
+
+$finish;
+
+                                                       
+// --> end                                             
+$display("Running testbench");                       
+end                                                    
+always                                                 
+// optional sensitivity list                           
+// @(event1 or event2 or .... eventn)                  
+begin                                                  
+// code executes for every event on sensitivity list   
+// insert code here --> begin                          
+                                                       
+@eachvec;                                              
+// --> end                                             
+end                                                    
+endmodule
+
