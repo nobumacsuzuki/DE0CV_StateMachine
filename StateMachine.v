@@ -74,7 +74,8 @@ module StateMachine(
 					else if (state_down == 1'b1)
 						state_machine <= STATE1;
 				STATE3:
-					state_machine <= STATE3;
+					if (state_down == 1'b1)
+						state_machine <= STATE2;
 				default:
 					state_machine <= STATE0;
 			endcase
