@@ -20,8 +20,7 @@ module StateMachine(
 	// clock divder for 1 sec
 	//
 
-	//parameter STATE_INTEVAL = 26'd49_999_999;
-	parameter STATE_INTEVAL = 26'd2;
+	parameter STATE_INTEVAL = 26'd49_999_999;
 	reg [25:0] _26bit_counter;
 	wire _26bit_counter_expired;
 	assign _26bit_counter_expired = (_26bit_counter == STATE_INTEVAL)? 1'b1: 1'b0;
@@ -54,10 +53,10 @@ module StateMachine(
 	wire state_down = ~in_button[1];
 	reg [1:0] state_machine = STATE0;
 
-	always @(posedge state_up or posedge state_down or posedge global_reset )
+	always @(negedge state_up or negedge state_down or posedge global_reset)
 	begin
 		if (global_reset)
-			state_machine = STATE0;
+			state_machine <= STATE0;
 		else
 		begin
 			case (state_machine)
@@ -110,13 +109,13 @@ module StateMachine(
 					STATE0:
 						_1sec_counter <= 16'd0;
 					STATE1:
-						_1sec_counter <= _1sec_counter + 16'd0;
+						_1sec_counter <= _1sec_counter + 16'd1;
 					STATE2:
-						_1sec_counter <= _1sec_counter - 16'd0;
+						_1sec_counter <= _1sec_counter - 16'd1;
 					STATE3:
-						_1sec_counter <= _1sec_counter;						
+						;						
 					default:
-						_1sec_counter <= 16'd0;
+						;
 				endcase
 			end
 		end

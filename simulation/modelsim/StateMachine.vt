@@ -71,62 +71,11 @@ in_button[0] <= 1'b0;
 #10
 in_button[0] <= 1'b1;
 #15
-in_button[1] = 1'b0;
-#10
-in_button[1] = 1'b1;
-#10
-in_button[1] = 1'b0;
-#10
-in_button[1] = 1'b1;
-#10
-in_button[1] = 1'b0;
-#10
-in_button[1] = 1'b1;
-#10
-in_button[1] = 1'b0;
-#10
-in_button[1] = 1'b1;
-#15
-in_button[0] <= 1'b0;
-#15
-in_button[0] <= 1'b1;
-#15
-in_button[1] = 1'b0;
-#10
-in_button[1] = 1'b1;
-#10
-in_button[1] = 1'b0;
-#10
-in_button[1] = 1'b1;
-#10
 in_button[2] = 1'b0;
 #10
 in_button[2] = 1'b1;
-#10
-in_button[1] = 1'b0;
-#10
-in_button[1] = 1'b1;
-#10
-in_button[1] = 1'b0;
-#10
-in_button[1] = 1'b1;
-#10
-in_button[2] = 1'b0;
-#10
-in_button[2] = 1'b1;
-#10
-in_button[1] = 1'b0;
-#10
-in_button[1] = 1'b1;
-#10
-in_button[1] = 1'b0;
-#10
-in_button[1] = 1'b1;
-#10
-in_button[2] = 1'b0;
-#10
-in_button[2] = 1'b1;
-#10
+#200
+
 
 
 $finish;
