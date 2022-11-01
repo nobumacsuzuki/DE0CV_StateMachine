@@ -20,7 +20,8 @@ module StateMachine(
 	// clock divder for 1 sec
 	//
 
-	parameter STATE_INTEVAL = 26'd49_999_999;
+	//parameter STATE_INTEVAL = 26'd49_999_999;
+	parameter STATE_INTEVAL = 26'd2;
 	reg [25:0] _26bit_counter;
 	wire _26bit_counter_expired;
 	assign _26bit_counter_expired = (_26bit_counter == STATE_INTEVAL)? 1'b1: 1'b0;
@@ -61,23 +62,33 @@ module StateMachine(
 		begin
 			case (state_machine)
 				STATE0:
-					if (state_up == 1'b1)
-						state_machine <= STATE1;
+					begin
+						if (state_up == 1'b1)
+							state_machine <= STATE1;
+					end
 				STATE1:
-					if (state_up == 1'b1)
-						state_machine <= STATE2;
-					else if (state_down == 1'b1)
-						state_machine <= STATE0;
+					begin
+						if (state_up == 1'b1)
+							state_machine <= STATE2;
+						else if (state_down == 1'b1)
+							state_machine <= STATE0;
+					end
 				STATE2:
-					if (state_up == 1'b1)
-						state_machine <= STATE3;
-					else if (state_down == 1'b1)
-						state_machine <= STATE1;
+					begin
+						if (state_up == 1'b1)
+							state_machine <= STATE3;
+						else if (state_down == 1'b1)
+							state_machine <= STATE1;
+					end
 				STATE3:
-					if (state_down == 1'b1)
-						state_machine <= STATE2;
+					begin
+						if (state_down == 1'b1)
+							state_machine <= STATE2;
+					end
 				default:
-					state_machine <= STATE0;
+					begin
+						state_machine <= STATE0;
+					end
 			endcase
 		end
 	end

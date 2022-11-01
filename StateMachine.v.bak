@@ -53,7 +53,7 @@ module StateMachine(
 	wire state_down = ~in_button[1];
 	reg [1:0] state_machine = STATE0;
 
-	always @(state_up or state_down or global_reset )
+	always @(posedge state_up or posedge state_down or posedge global_reset )
 	begin
 		if (global_reset)
 			state_machine = STATE0;
@@ -74,7 +74,8 @@ module StateMachine(
 					else if (state_down == 1'b1)
 						state_machine <= STATE1;
 				STATE3:
-					state_machine <= STATE3;
+					if (state_down == 1'b1)
+						state_machine <= STATE2;
 				default:
 					state_machine <= STATE0;
 			endcase
